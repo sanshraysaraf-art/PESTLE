@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>India's Oil Security — PESTLE Analysis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0e0e0e;
+  --bg2: #161616;
+  --bg3: #1e1e1e;
+  --line: #2a2a2a;
+  --text: #e8e4dc;
+  --muted: #6b6560;
+  --dim: #3a3632;
+  --amber: #d4820a;
+  --amber-glow: #f0a020;
+  --red: #c23b22;
+  --cream: #f0ead8;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.4;
+}
+
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 2.5rem;
+  border-bottom: 1px solid var(--line);
+  background: rgba(14,14,14,0.92);
+  backdrop-filter: blur(12px);
+}
+
+.nav-brand {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--text); }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid var(--line);
+}
+
+.hero-left {
+  padding: 10rem 3rem 5rem 2.5rem;
+  border-right: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.hero-tag {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.hero-tag::before {
+  content: '';
+  width: 2rem;
+  height: 1px;
+  background: var(--amber);
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.4rem, 4.5vw, 4rem);
+  font-weight: 400;
+  line-height: 1.12;
+  color: var(--cream);
+  margin-bottom: 2rem;
+}
+
+h1 em {
+  font-style: italic;
+  color: var(--amber-glow);
+}
+
+.hero-lede {
+  font-size: 0.95rem;
+  color: var(--muted);
+  max-width: 460px;
+  line-height: 1.75;
+  margin-bottom: 3rem;
+}
+
+.hero-date {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+.hero-right {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.hero-stat {
+  border-bottom: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  padding: 2rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: background 0.3s ease;
+  cursor: default;
+}
+.hero-stat:nth-child(2n) { border-right: none; }
+.hero-stat:nth-child(5),
+.hero-stat:nth-child(6) { border-bottom: none; }
+
+.hero-stat:hover { background: var(--bg2); }
+
+.hero-stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--cream);
+  margin-bottom: 0.4rem;
+  transition: color 0.2s;
+}
+.hero-stat:hover .hero-stat-num { color: var(--amber-glow); }
+.hero-stat-num.alert { color: var(--red); }
+.hero-stat:hover .hero-stat-num.alert { color: #e05535; }
+
+.hero-stat-label {
+  font-size: 0.72rem;
+  color: var(--muted);
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+/* SECTION LABEL */
+.section-label {
+  padding: 1.4rem 2.5rem;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.section-label span {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+
+/* PESTLE GRID */
+.pestle {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.card {
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 2.8rem 2.2rem;
+  position: relative;
+  transition: background 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+.card:nth-child(3n) { border-right: none; }
+.card:nth-child(4),
+.card:nth-child(5),
+.card:nth-child(6) { border-bottom: none; }
+.card:hover { background: var(--bg2); }
+
+.card-ghost {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 7rem;
+  font-weight: 700;
+  color: var(--line);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  transition: color 0.25s;
+}
+.card:hover .card-ghost { color: var(--dim); }
+
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.6rem;
+}
+
+.card-pill {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--amber);
+  background: rgba(212, 130, 10, 0.1);
+  border: 1px solid rgba(212, 130, 10, 0.25);
+  padding: 0.3rem 0.65rem;
+  border-radius: 2px;
+  margin-top: 0.15rem;
+  white-space: nowrap;
+}
+
+.card-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem;
+  font-weight: 400;
+  color: var(--cream);
+  line-height: 1.2;
+}
+
+.card-insight {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #a09890;
+  margin-bottom: 1.6rem;
+  padding-bottom: 1.4rem;
+  border-bottom: 1px solid var(--line);
+  flex-shrink: 0;
+}
+
+.card-list {
+  list-style: none;
+  flex: 1;
+}
+
+.card-list li {
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.65;
+  padding: 0.5rem 0 0.5rem 1.1rem;
+  border-bottom: 1px solid #1e1e1e;
+  position: relative;
+  transition: color 0.2s;
+}
+.card-list li:last-child { border-bottom: none; }
+.card:hover .card-list li { color: #857e78; }
+
+.card-list li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: var(--amber);
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+.card-list li strong {
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* BOTTOM BAND */
+.bottom-band {
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+.bottom-context {
+  padding: 3rem 2.5rem;
+  border-right: 1px solid var(--line);
+}
+
+.bottom-context h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--cream);
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.bottom-context p {
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.8;
+  max-width: 580px;
+}
+.bottom-context p + p { margin-top: 1rem; }
+
+.bottom-meta {
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+.meta-label {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin-bottom: 0.4rem;
+}
+
+.meta-value {
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* FOOTER */
+footer {
+  border-top: 1px solid var(--line);
+  padding: 1.5rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-left {
+  font-size: 0.72rem;
+  color: var(--dim);
+  line-height: 1.5;
+}
+
+.footer-right {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+
+/* REVEAL */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-left { padding: 8rem 1.5rem 3rem; border-right: none; border-bottom: 1px solid var(--line); }
+  .pestle { grid-template-columns: 1fr 1fr; }
+  .card:nth-child(3n) { border-right: 1px solid var(--line); }
+  .card:nth-child(2n) { border-right: none; }
+  .card:nth-child(4), .card:nth-child(5), .card:nth-child(6) { border-bottom: 1px solid var(--line); }
+  .card:nth-child(5), .card:nth-child(6) { border-bottom: none; }
+  .bottom-band { grid-template-columns: 1fr; }
+  .bottom-context { border-right: none; border-bottom: 1px solid var(--line); }
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; }
+}
+
+@media (max-width: 560px) {
+  .pestle { grid-template-columns: 1fr; }
+  .card { border-right: none !important; border-bottom: 1px solid var(--line) !important; }
+  .section-label { padding: 1.2rem 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">India Energy · 2025–26</div>
+  <ul class="nav-links">
+    <li><a href="#analysis">Analysis</a></li>
+    <li><a href="#context">Context</a></li>
+    <li><a href="#sources">Sources</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-tag">PESTLE Analysis</p>
+    <h1>India's Oil Security<br>in a <em>Fragmenting</em><br>Energy Order</h1>
+    <p class="hero-lede">85% import dependence and a $150B annual bill leave India acutely exposed to geopolitical realignment, supply disruption, and the slow unravelling of the petrodollar system.</p>
+    <p class="hero-date">Research · Early 2026</p>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-stat">
+      <div class="hero-stat-num">85%</div>
+      <div class="hero-stat-label">Oil import dependency</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">$150B</div>
+      <div class="hero-stat-label">Annual import bill</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num alert">74 days</div>
+      <div class="hero-stat-label">Strategic Petroleum Reserve — 16 days short of IEA minimum</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">50%</div>
+      <div class="hero-stat-label">Passes through Strait of Hormuz</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">36%</div>
+      <div class="hero-stat-label">Russian crude share of imports (2026)</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">$14–15B</div>
+      <div class="hero-stat-label">Added to import bill per $10/bbl oil price rise</div>
+    </div>
+  </div>
+</section>
+
+<div id="analysis">
+  <div class="section-label">
+    <span>Six dimensions of risk</span>
+  </div>
+
+  <div class="pestle">
+
+    <div class="card reveal">
+      <span class="card-ghost">P</span>
+      <div class="card-header">
+        <div class="card-pill">Political</div>
+        <div class="card-name">The US–Russia–<br>Gulf triangle</div>
+      </div>
+      <p class="card-insight">India navigates a triangular power dynamic where every relationship offers a discount but extracts a diplomatic cost.</p>
+      <ul class="card-list">
+        <li>Russia invasion (2022): crude share rose from <strong>2% → 36%</strong> at a 35% discount — a windfall with a half-life</li>
+        <li>US threatened <strong>25% tariffs</strong>, negotiated down to 18% via bilateral trade deal (early 2026)</li>
+        <li>Iran blocked Strait of Hormuz; India relied on Jaishankar's back-channels to maintain flow</li>
+        <li>BRICS currency frameworks explored to reduce structural petrodollar reliance</li>
+      </ul>
+    </div>
+
+    <div class="card reveal">
+      <span class="card-ghost">E</span>
+      <div class="card-header">
+        <div class="card-pill">Economic</div>
+        <div class="card-name">The impossible<br>macro trinity</div>
+      </div>
+      <p class="card-insight">Every $10/bbl rise adds $14–15B to the import bill — triggering a chain reaction no single policy lever can absorb.</p>
+      <ul class="card-list">
+        <li>Baseline import bill <strong>$150B</strong>; a 25% price spike widens it by $30–40B in a single year</li>
+        <li>CAD deteriorates → Rupee depreciates → forex reserves depleted — the classic oil shock spiral</li>
+        <li>Cannot simultaneously run expansionary monetary policy and control inflation</li>
+        <li>Contango market: near-term futures at <strong>$74/bbl</strong>; medium-term supply surplus expected</li>
+      </ul>
+    </div>
+
+    <div class="card reveal">
+      <span class="card-ghost">S</span>
+      <div class="card-header">
+        <div class="card-pill">Social</div>
+        <div class="card-name">1.4 billion people,<br>two vulnerabilities</div>
+      </div>
+      <p class="card-insight">Energy inflation hits hardest at the bottom. Gulf remittances create a second exposure that any Hormuz closure can sever overnight.</p>
+      <ul class="card-list">
+        <li><strong>$51B</strong> in annual Gulf remittances — primary income for Kerala, UP, and Bihar households</li>
+        <li>LPG subsidy only viable below <strong>$80/bbl</strong>; above that, govt must raise prices or slash capex</li>
+        <li>Energy costs disproportionately burden lower-income households with no substitution options</li>
+        <li>Any Gulf employment disruption ripples through multiple states with no domestic buffer</li>
+      </ul>
+    </div>
+
+    <div class="card reveal">
+      <span class="card-ghost">T</span>
+      <div class="card-header">
+        <div class="card-pill">Technological</div>
+        <div class="card-name">Refineries locked<br>to heavy crude</div>
+      </div>
+      <p class="card-insight">Infrastructure built for Russian and Middle Eastern crude. The Strategic Petroleum Reserve sits critically short — by precisely 16 days of the IEA minimum.</p>
+      <ul class="card-list">
+        <li>Indian refineries optimised for heavy sour crude — <strong>cannot process US shale</strong> as a substitute</li>
+        <li>SPR at 74 days vs the IEA's 90-day minimum — a <strong>16-day structural shortfall</strong></li>
+        <li>BRICS digital currencies and shadow payment systems explored to bypass SWIFT</li>
+        <li><strong>100GW solar</strong> installed; targeting 500GW renewable capacity by 2030</li>
+      </ul>
+    </div>
+
+    <div class="card reveal">
+      <span class="card-ghost">L</span>
+      <div class="card-header">
+        <div class="card-pill">Legal</div>
+        <div class="card-name">G7 caps and<br>force majeure</div>
+      </div>
+      <p class="card-insight">Price caps and force majeure clauses rewrite the rules of oil trade — forcing India to improvise routes, currencies, and legal structures at scale.</p>
+      <ul class="card-list">
+        <li>G7 price cap at <strong>$60/bbl</strong> on Russian oil — Indian banks must route via non-dollar systems</li>
+        <li>War-risk insurance premiums spike when Hormuz is threatened, raising freight costs materially</li>
+        <li>Force majeure clauses push India from long-term contracts into volatile spot markets</li>
+        <li>Purchases rerouted through alternative shipping insurance to avoid Western legal exposure</li>
+      </ul>
+    </div>
+
+    <div class="card reveal">
+      <span class="card-ghost">E</span>
+      <div class="card-header">
+        <div class="card-pill">Environmental</div>
+        <div class="card-name">Demand rising as<br>pledges accumulate</div>
+      </div>
+      <p class="card-insight">Oil demand growing 3–4% annually even as India commits to net-zero by 2070 — a structural tension that colours every long-term energy decision.</p>
+      <ul class="card-list">
+        <li>India committed to net-zero by <strong>2070</strong> — among the later targets of any major economy</li>
+        <li>100GW+ solar installed; targeting <strong>500GW renewable</strong> capacity by 2030</li>
+        <li>Oil demand still rising <strong>3–4% p.a.</strong> driven by industrialisation and transport growth</li>
+        <li>Core tension: energy security today vs decarbonisation credibility for the future</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<div class="bottom-band" id="context">
+  <div class="bottom-context">
+    <h2>Why this matters beyond India's borders</h2>
+    <p>India is now the world's third-largest oil importer. Its purchasing decisions move prices, its diplomatic positioning shapes alliances, and its balancing act between Washington and Moscow offers a preview of how other large emerging economies will navigate a fracturing world order.</p>
+    <p>The Russian crude arbitrage — buying discounted Urals while the West enforces price caps — is both a rational economic choice and a geopolitical statement. India's ability to sustain this position depends on BRICS solidarity, shadow payment resilience, and Washington's appetite for confrontation with a country it needs as a counterweight to China.</p>
+    <p>The 16-day gap in the Strategic Petroleum Reserve is not an administrative oversight. It reflects a deliberate trade-off: the fiscal cost of filling reserves against maintaining currency and fiscal headroom. That trade-off becomes catastrophic if Hormuz closes for more than three months.</p>
+  </div>
+  <div class="bottom-meta" id="sources">
+    <div>
+      <p class="meta-label">Primary sources</p>
+      <p class="meta-value">EIA, IEA, Ministry of Petroleum & Natural Gas, OPEC Secretariat, IMF World Economic Outlook</p>
+    </div>
+    <div>
+      <p class="meta-label">Period covered</p>
+      <p class="meta-value">2022–2026, with forward projections to 2030</p>
+    </div>
+    <div>
+      <p class="meta-label">Framework</p>
+      <p class="meta-value">PESTLE — Political, Economic, Social, Technological, Legal, Environmental</p>
+    </div>
+    <div>
+      <p class="meta-label">Critical threshold</p>
+      <p class="meta-value">Strait of Hormuz closure exceeding 90 days — SPR covers only 74 days at current consumption</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-left">
+    Data based on publicly available sources as of early 2026.<br>
+    EIA · IEA · IMF · Ministry of Petroleum & Natural Gas · OPEC
+  </div>
+  <div class="footer-right">India Energy Research · 2026</div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
